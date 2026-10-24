@@ -1,0 +1,46 @@
+/* Rende il contenitore radice invisibile per far risaltare solo il form */
+.root-trasparente {
+    -fx-background-color: transparent;
+}
+
+/* Il rettangolo scuro principale con l'ombra */
+.sfondo-principale {
+    -fx-background-color: #211f2d; /* Grigio scurissimo del form destro */
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0, 0, 5);
+}
+
+/* Il blocco colorato a sinistra */
+.pannello-sinistro {
+    -fx-background-color: #352f49; /* Il viola scuro/bluastro */
+    -fx-background-radius: 10;
+}
+
+/* Le caselle di testo arrotondate */
+.campo-testo {
+    -fx-background-color: transparent;
+    -fx-border-color: #413a58;
+    -fx-border-radius: 8;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #827b9c;
+    -fx-font-weight: bold;
+    -fx-padding: 10 15 10 15;
+}
+
+/* Il bottone viola in basso */
+.bottone-viola {
+    -fx-background-color: #7255bd;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+
+/* La "X" per chiudere */
+.bottone-chiudi {
+    -fx-background-color: transparent;
+    -fx-text-fill: #827b9c;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
