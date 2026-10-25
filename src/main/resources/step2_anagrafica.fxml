@@ -1,0 +1,23 @@
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step2Controller">
+    <Label text="Informazioni Personali" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1A1A24;"/>
+    <TextField fx:id="nomeField" promptText="NOME" styleClass="input-field"/>
+    <TextField fx:id="cognomeField" promptText="COGNOME" styleClass="input-field"/>
+    <!-- Per semplificare usiamo TextField, ma potresti usare DatePicker e ComboBox -->
+    <TextField promptText="DATA DI NASCITA (GG/MM/AAAA)" styleClass="input-field"/>
+    <TextField promptText="NAZIONE" styleClass="input-field"/>
+
+    <Region VBox.vgrow="ALWAYS" />
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Indietro" styleClass="btn-secondary" onAction="#goBack"/>
+        <Button text="Annulla" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;"/>
+        <Button text="Avanti" styleClass="btn-primary" prefWidth="100" onAction="#goNext"/>
+    </HBox>
+</VBox>

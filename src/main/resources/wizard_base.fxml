@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.Pane?>
+<StackPane styleClass="transparent-root" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.WizardBaseController" prefWidth="600" prefHeight="700">
+    <AnchorPane styleClass="floating-card" maxHeight="550" maxWidth="450">
+
+        <Label text="✕" AnchorPane.topAnchor="20" AnchorPane.rightAnchor="25" styleClass="close-btn" onMouseClicked="#closeApp"/>
+
+        <VBox AnchorPane.topAnchor="40" AnchorPane.leftAnchor="40" spacing="5">
+            <Label text="Crea un account" styleClass="title-label"/>
+            <HBox spacing="5">
+                <Label text="Hai già un account?" style="-fx-text-fill: #555;"/>
+                <Hyperlink text="Accedi" styleClass="link-accent"/>
+            </HBox>
+        </VBox>
+
+        <!-- Indicatori di Step (Le Pillole) -->
+        <HBox fx:id="stepIndicators" spacing="10" AnchorPane.topAnchor="110" AnchorPane.leftAnchor="40">
+            <Pane fx:id="ind1" styleClass="step-indicator-active" prefWidth="40" prefHeight="5"/>
+            <Pane fx:id="ind2" styleClass="step-indicator" prefWidth="40" prefHeight="5"/>
+            <Pane fx:id="ind3" styleClass="step-indicator" prefWidth="40" prefHeight="5"/>
+            <Pane fx:id="ind4" styleClass="step-indicator" prefWidth="40" prefHeight="5"/>
+        </HBox>
+
+        <!-- Area dinamica caricamento Step (abbassata per fare spazio agli indicatori) -->
+        <StackPane fx:id="contentArea" AnchorPane.topAnchor="130" AnchorPane.leftAnchor="40" AnchorPane.rightAnchor="40" AnchorPane.bottomAnchor="30"/>
+
+    </AnchorPane>
+</StackPane>

@@ -1,0 +1,21 @@
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step3Controller">
+    <Label text="Sei un esperto?" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1A1A24;"/>
+    <Label text="Lascia il tuo contributo sulla piattaforma! Inserisci il codice Token fornito dall'amministrazione per abilitare le funzioni da Esperto." styleClass="subtitle-label"/>
+
+    <TextField fx:id="tokenField" promptText="INSERISCI TOKEN" styleClass="input-field" style="-fx-font-size: 16px; -fx-alignment: center;"/>
+
+    <Region VBox.vgrow="ALWAYS" />
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="Indietro" styleClass="btn-secondary" onAction="#goBack"/>
+        <Button text="Ignora" styleClass="btn-secondary" style="-fx-text-fill: #888;" onAction="#goNext"/>
+        <Button text="Avanti" styleClass="btn-primary" prefWidth="100" onAction="#goNext"/>
+    </HBox>
+</VBox>

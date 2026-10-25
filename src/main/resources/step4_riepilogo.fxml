@@ -1,0 +1,23 @@
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step4Controller">
+    <Label text="Riepilogo Dati" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1A1A24;"/>
+
+    <VBox spacing="5" style="-fx-background-color: rgba(255,255,255,0.6); -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #E2DCC8; -fx-border-radius: 10;">
+        <Label fx:id="lblUser" text="Username: " style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+        <Label fx:id="lblNome" text="Nome e Cognome: " style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
+        <Label fx:id="lblToken" text="Ruolo: Lettore Base" style="-fx-font-size: 14px; -fx-text-fill: #991845; -fx-font-weight: bold;"/>
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS" />
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Indietro" styleClass="btn-secondary" onAction="#goBack"/>
+        <Button text="Completa Registrazione" styleClass="btn-primary" prefWidth="200" onAction="#submit"/>
+    </HBox>
+</VBox>

@@ -1,46 +1,162 @@
-/* Rende il contenitore radice invisibile per far risaltare solo il form */
-.root-trasparente {
+.transparent-root {
     -fx-background-color: transparent;
 }
 
-/* Il rettangolo scuro principale con l'ombra */
-.sfondo-principale {
-    -fx-background-color: #211f2d; /* Grigio scurissimo del form destro */
-    -fx-background-radius: 15;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0, 0, 5);
+.floating-card {
+    -fx-background-color: linear-gradient(to bottom right, #FFFFFF, #FFF8DF);
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 40, 0, 0, 15);
 }
 
-/* Il blocco colorato a sinistra */
-.pannello-sinistro {
-    -fx-background-color: #352f49; /* Il viola scuro/bluastro */
-    -fx-background-radius: 10;
+.title-label {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1A24;
+    -fx-font-family: "Segoe UI", sans-serif;
 }
 
-/* Le caselle di testo arrotondate */
-.campo-testo {
+.input-field {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-background-radius: 12;
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 12;
+    -fx-pref-height: 45px;
+    -fx-padding: 0 15 0 15;
+    -fx-font-size: 14px;
+}
+
+.input-field:focused {
+    -fx-border-color: #991845;
+    -fx-background-color: #FFFFFF;
+}
+
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom right, #B31B54, #991845);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-background-radius: 25;
+    -fx-pref-height: 50px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.4), 15, 0, 0, 5);
+}
+
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom right, #C91D5E, #B31B54);
+    -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.7), 25, 0, 0, 0);
+}
+
+.btn-secondary {
     -fx-background-color: transparent;
-    -fx-border-color: #413a58;
-    -fx-border-radius: 8;
-    -fx-text-fill: white;
-    -fx-prompt-text-fill: #827b9c;
+    -fx-text-fill: #991845;
     -fx-font-weight: bold;
-    -fx-padding: 10 15 10 15;
-}
-
-/* Il bottone viola in basso */
-.bottone-viola {
-    -fx-background-color: #7255bd;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-background-radius: 8;
     -fx-cursor: hand;
 }
 
-/* La "X" per chiudere */
-.bottone-chiudi {
+/* Indicatori di Step (Pillole superiori) */
+.step-indicator {
+    -fx-background-color: #E2DCC8;
+    -fx-background-radius: 5;
+}
+.step-indicator-active {
+    -fx-background-color: #991845;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.4), 10, 0, 0, 2);
+}
+
+/* Sottotitolo */
+.subtitle-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #777777;
+}
+
+/* Rimuove il background interno di default e imposta il padding per l'icona */
+.custom-input {
     -fx-background-color: transparent;
-    -fx-text-fill: #827b9c;
-    -fx-font-weight: bold;
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 12;
+    -fx-pref-height: 50px;
+    -fx-padding: 0 15 0 45; /* Spazio a sinistra per l'icona */
+    -fx-font-size: 14px;
+}
+
+/* Stile per l'icona fissa a sinistra */
+.input-icon {
     -fx-font-size: 16px;
+    -fx-text-fill: #999999;
+    -fx-translate-x: 15; /* Posiziona l'icona nel padding del TextField */
+}
+
+/* Etichetta fluttuante di base */
+.floating-label {
+    -fx-text-fill: #999999;
+    -fx-font-size: 14px;
+    -fx-translate-x: 40; /* Allinea il testo dopo l'icona */
+}
+
+.close-btn {
+    -fx-font-size: 16px;
+    -fx-text-fill: #888888;
     -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+.close-btn:hover {
+    -fx-text-fill: #991845;
+}
+
+.link-accent {
+    -fx-text-fill: #991845;
+    -fx-font-weight: bold;
+    -fx-underline: false;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+
+    /* Azzeramento del focus ring nativo di JavaFX */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.link-accent:hover {
+    -fx-text-fill: #C91D5E;
+}
+
+/* Stile base condiviso da entrambi i finti-link */
+.link-forgot, .link-register {
+    -fx-text-fill: #991845; /* Deep Berry */
+    -fx-font-weight: bold;
+    -fx-cursor: hand;       /* Mostra la manina al passaggio del mouse */
+    -fx-font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Effetto 1: Solo cambio colore (più scuro) per "Forgot password?" */
+.link-forgot:hover {
+    -fx-text-fill: #6d1131; /* Un tono più scuro di Deep Berry */
+}
+
+/* Effetto 2: Solo sottolineatura per "Register" */
+.link-register:hover {
+    -fx-underline: true;
+}
+
+/* Arrotonda la scatolina della checkbox e imposta i colori base */
+.check-box .box {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #E2DCC8;
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Colora la checkbox di Deep Berry quando viene cliccata/selezionata */
+.check-box:selected .box {
+    -fx-background-color: #991845;
+    -fx-border-color: #991845;
+}
+
+/* Colora la spunta (il segno di check) di bianco */
+.check-box:selected .mark {
+    -fx-background-color: white;
 }

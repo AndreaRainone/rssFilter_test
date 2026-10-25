@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step1Controller">
+    <TextField fx:id="usernameField" promptText="USERNAME" styleClass="input-field"/>
+    <PasswordField fx:id="passwordField" promptText="PASSWORD" styleClass="input-field"/>
+    <PasswordField fx:id="confirmPasswordField" promptText="CONFERMA PASSWORD" styleClass="input-field"/>
+
+    <Region VBox.vgrow="ALWAYS" />
+
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="Annulla" styleClass="btn-secondary"/>
+        <Button text="Avanti" styleClass="btn-primary" prefWidth="120" onAction="#goNext"/>
+    </HBox>
+</VBox>
