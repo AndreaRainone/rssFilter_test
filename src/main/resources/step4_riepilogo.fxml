@@ -1,23 +1,96 @@
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?xml version="1.0" encoding="UTF-8"?>
-<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step4Controller">
-    <Label text="Riepilogo Dati" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1A1A24;"/>
 
-    <VBox spacing="5" style="-fx-background-color: rgba(255,255,255,0.6); -fx-padding: 15; -fx-background-radius: 10; -fx-border-color: #E2DCC8; -fx-border-radius: 10;">
-        <Label fx:id="lblUser" text="Username: " style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
-        <Label fx:id="lblNome" text="Nome e Cognome: " style="-fx-font-size: 14px; -fx-text-fill: #333;"/>
-        <Label fx:id="lblToken" text="Ruolo: Lettore Base" style="-fx-font-size: 14px; -fx-text-fill: #991845; -fx-font-weight: bold;"/>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="it.faris.Step4Controller">
+
+    <Label style="-fx-background-color: #D1FAE5; -fx-text-fill: #059669; -fx-background-radius: 50; -fx-min-width: 45; -fx-min-height: 45; -fx-alignment: center; -fx-font-size: 20px; -fx-font-weight: bold;" text="✓" />
+    <Label style="-fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #111827;" text="Quasi finito!">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+      </font></Label>
+    <Label style="-fx-text-fill: #6B7280; -fx-font-size: 13px;" text="Verifica i tuoi dati prima di completare la registrazione.">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+      </font></Label>
+
+    <!-- Card Riepilogo Dati -->
+    <VBox spacing="10" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #F3F4F6; -fx-border-radius: 12; -fx-padding: 10 15 10 15;">
+
+        <HBox alignment="CENTER_LEFT" styleClass="summary-row">
+            <Label style="-fx-text-fill: #6B7280;" text="Username">
+            <font>
+               <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+            </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblUser" style="-fx-text-fill: #111827; -fx-font-weight: bold;" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" styleClass="summary-row">
+            <Label style="-fx-text-fill: #6B7280;" text="Nome completo">
+            <font>
+               <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+            </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblNome" style="-fx-text-fill: #111827; -fx-font-weight: bold;" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" styleClass="summary-row">
+            <Label style="-fx-text-fill: #6B7280;" text="Password">
+            <font>
+               <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+            </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" spacing="10">
+                <Label fx:id="lblPassword" style="-fx-text-fill: #111827; -fx-font-weight: bold;" />
+                <Label fx:id="eyeIcon" onMouseClicked="#togglePassword" style="-fx-text-fill: #888; -fx-cursor: hand;" text="👁">
+               <font>
+                  <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+               </font></Label>
+            </HBox>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" styleClass="summary-row">
+            <Label style="-fx-text-fill: #6B7280;" text="Nazione">
+            <font>
+               <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+            </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblNazione" style="-fx-text-fill: #111827; -fx-font-weight: bold;" />
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 10 0 10 0;">
+            <Label style="-fx-text-fill: #6B7280;" text="Token / Ruolo">
+            <font>
+               <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+            </font></Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="lblToken" style="-fx-text-fill: #991845; -fx-font-weight: bold;" />
+        </HBox>
     </VBox>
 
-    <Region VBox.vgrow="ALWAYS" />
-    <HBox spacing="10" alignment="CENTER_RIGHT">
-        <Button text="Indietro" styleClass="btn-secondary" onAction="#goBack"/>
-        <Button text="Completa Registrazione" styleClass="btn-primary" prefWidth="200" onAction="#submit"/>
+    <!-- Spazio flessibile per spingere il footer in basso -->
+    <Region minHeight="10" VBox.vgrow="ALWAYS" />
+
+    <!-- Footer con tutti i bottoni sulla stessa riga -->
+    <HBox alignment="CENTER_RIGHT" spacing="15">
+        <Button onAction="#goBack" styleClass="btn-outline" text="Indietro">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Button>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label onMouseClicked="#closeApp" style="-fx-text-fill: #9CA3AF; -fx-font-weight: bold; -fx-cursor: hand;" text="Annulla">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Label>
+        <Button onAction="#submit" styleClass="btn-primary" text="Completa Registrazione">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Button>
     </HBox>
 </VBox>

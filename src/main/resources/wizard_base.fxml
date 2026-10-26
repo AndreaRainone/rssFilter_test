@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.AnchorPane?>
+
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Hyperlink?>
-<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.Pane?>
-<StackPane styleClass="transparent-root" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.WizardBaseController" prefWidth="600" prefHeight="700">
-    <AnchorPane styleClass="floating-card" maxHeight="550" maxWidth="450">
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-        <Label text="✕" AnchorPane.topAnchor="20" AnchorPane.rightAnchor="25" styleClass="close-btn" onMouseClicked="#closeApp"/>
+<StackPane prefHeight="700" prefWidth="600" styleClass="transparent-root" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="it.faris.WizardBaseController">
 
-        <VBox AnchorPane.topAnchor="40" AnchorPane.leftAnchor="40" spacing="5">
-            <Label text="Crea un account" styleClass="title-label"/>
-            <HBox spacing="5">
-                <Label text="Hai già un account?" style="-fx-text-fill: #555;"/>
-                <Hyperlink text="Accedi" styleClass="link-accent"/>
-            </HBox>
-        </VBox>
+    <!-- La card ora si ridimensiona automaticamente in altezza (maxHeight="-Infinity") -->
+    <VBox maxHeight="-Infinity" maxWidth="460" spacing="20" style="-fx-padding: 30 35 30 35;" styleClass="floating-card">
 
-        <!-- Indicatori di Step (Le Pillole) -->
-        <HBox fx:id="stepIndicators" spacing="10" AnchorPane.topAnchor="110" AnchorPane.leftAnchor="40">
-            <Pane fx:id="ind1" styleClass="step-indicator-active" prefWidth="40" prefHeight="5"/>
-            <Pane fx:id="ind2" styleClass="step-indicator" prefWidth="40" prefHeight="5"/>
-            <Pane fx:id="ind3" styleClass="step-indicator" prefWidth="40" prefHeight="5"/>
-            <Pane fx:id="ind4" styleClass="step-indicator" prefWidth="40" prefHeight="5"/>
+        <!-- Header con Titolo e Tasto Chiudi -->
+        <HBox alignment="TOP_RIGHT">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label styleClass="title-label" text="Crea un account" />
+                <HBox alignment="CENTER_LEFT" spacing="5">
+                    <Label style="-fx-text-fill: #555;" text="Hai già un account?">
+                  <font>
+                     <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+                  </font></Label>
+                    <Label styleClass="link-register" text="Accedi" />
+                </HBox>
+            </VBox>
+            <Label onMouseClicked="#closeApp" styleClass="close-btn" text="✕" />
         </HBox>
 
-        <!-- Area dinamica caricamento Step (abbassata per fare spazio agli indicatori) -->
-        <StackPane fx:id="contentArea" AnchorPane.topAnchor="130" AnchorPane.leftAnchor="40" AnchorPane.rightAnchor="40" AnchorPane.bottomAnchor="30"/>
+        <!-- Indicatori di Step (Pillole) -->
+        <HBox fx:id="stepIndicators" alignment="CENTER" spacing="12">
+            <Pane fx:id="ind1" maxHeight="6" prefHeight="6" styleClass="step-indicator-active" HBox.hgrow="ALWAYS" />
+            <Pane fx:id="ind2" maxHeight="6" prefHeight="6" styleClass="step-indicator" HBox.hgrow="ALWAYS" />
+            <Pane fx:id="ind3" maxHeight="6" prefHeight="6" styleClass="step-indicator" HBox.hgrow="ALWAYS" />
+            <Pane fx:id="ind4" maxHeight="6" prefHeight="6" styleClass="step-indicator" HBox.hgrow="ALWAYS" />
+        </HBox>
 
-    </AnchorPane>
+        <!-- Contenitore dinamico per gli Step -->
+        <VBox fx:id="contentArea" VBox.vgrow="ALWAYS" />
+
+    </VBox>
 </StackPane>

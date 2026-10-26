@@ -1,30 +1,27 @@
 package it.faris;
 
-import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.Node;
-import javafx.util.Duration;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import java.util.List;
 
 public class WizardBaseController {
-    @FXML private StackPane contentArea;
+
+    @FXML private VBox contentArea;
     @FXML private Pane ind1, ind2, ind3, ind4;
 
-    private RegistrationViewModel viewModel = new RegistrationViewModel();
-    private Pane[] indicators;
+    private final RegistrationViewModel viewModel = new RegistrationViewModel();
 
     @FXML
     public void initialize() {
-        indicators = new Pane[]{ind1, ind2, ind3, ind4};
         loadStep("/step1_account.fxml", 1);
     }
 
-    // Il metodo ora accetta il numero dello step (1, 2, 3 o 4)
-    public void loadStep(String fxmlFile, int stepNumber) {
+    public void loadStep(String fxmlPath, int stepIndex) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Node stepNode = loader.load();
 
             WizardStep controller = loader.getController();
@@ -32,34 +29,31 @@ public class WizardBaseController {
                 controller.setup(this, viewModel);
             }
 
-            // Aggiorna visivamente gli indicatori (Pillole)
-            updateIndicators(stepNumber);
-
-            // Effetto dissolvenza premium
-            stepNode.setOpacity(0);
             contentArea.getChildren().setAll(stepNode);
-            FadeTransition ft = new FadeTransition(Duration.millis(300), stepNode);
-            ft.setToValue(1.0);
-            ft.play();
+
+            // Aggiorna l'avanzamento visivo delle pillole
+            updateIndicators(stepIndex);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void updateIndicators(int currentStep) {
-        for (int i = 0; i < indicators.length; i++) {
-            indicators[i].getStyleClass().removeAll("step-indicator", "step-indicator-active");
-            if (i < currentStep) {
-                indicators[i].getStyleClass().add("step-indicator-active");
+    private void updateIndicators(int stepIndex) {
+        List<Pane> indicators = List.of(ind1, ind2, ind3, ind4);
+        for (int i = 0; i < indicators.size(); i++) {
+            Pane pane = indicators.get(i);
+            // Illumina le pillole degli step correnti e precedenti
+            if (i < stepIndex) {
+                pane.getStyleClass().setAll("step-indicator-active");
             } else {
-                indicators[i].getStyleClass().add("step-indicator");
+                pane.getStyleClass().setAll("step-indicator");
             }
         }
     }
 
     @FXML
     private void closeApp() {
-        System.exit(0);
+        ((Node) contentArea.getScene().getRoot()).getScene().getWindow().hide();
     }
 }

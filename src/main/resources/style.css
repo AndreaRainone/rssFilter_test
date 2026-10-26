@@ -42,6 +42,7 @@
     -fx-pref-height: 50px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.4), 15, 0, 0, 5);
+
 }
 
 .btn-primary:hover {
@@ -159,4 +160,207 @@
 /* Colora la spunta (il segno di check) di bianco */
 .check-box:selected .mark {
     -fx-background-color: white;
+}
+
+/* --- FIX BOTTONI MANCANTI (Indietro e Verifica) --- */
+.btn-outline {
+    -fx-background-color: transparent;
+    -fx-border-color: #D1D5DB;
+    -fx-border-radius: 25;
+    -fx-text-fill: #4B5563;
+    -fx-font-weight: bold;
+    -fx-pref-height: 45px;
+    -fx-padding: 0 20 0 20;
+    -fx-cursor: hand;
+}
+.btn-outline:hover {
+    -fx-background-color: #F3F4F6;
+}
+
+.btn-dark {
+    -fx-background-color: #111827;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25;
+    -fx-pref-height: 45px;
+    -fx-padding: 0 20 0 20;
+    -fx-cursor: hand;
+}
+.btn-dark:hover {
+    -fx-background-color: #1F2937;
+}
+
+/* --- FIX DISTANZA RIGHE RIEPILOGO (Step 4) --- */
+.summary-row {
+    -fx-padding: 12 0 12 0; /* Aggiunge spazio sopra e sotto ogni riga */
+    -fx-border-color: #F3F4F6;
+    -fx-border-width: 0 0 1 0; /* Sottile linea di separazione sotto ogni riga */
+}
+
+/* --- FIX NAZIONE (COMBOBOX NON EDITABILE) --- */
+.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-pref-height: 45px;
+}
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 0 10 0 10;
+    -fx-text-fill: #1A1A24;
+}
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+/* --- FIX CALENDARIO (DATEPICKER) --- */
+.date-picker {
+    -fx-background-color: rgba(255, 255, 255, 0.6);
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-pref-height: 45px;
+}
+.date-picker > .text-field {
+    -fx-background-color: transparent; /* Fa sparire il quadrato bianco */
+    -fx-padding: 0 15 0 15;
+}
+.date-picker .arrow-button {
+    -fx-background-color: transparent; /* Fa sparire il bottone grigio */
+}
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #888888;
+}
+
+/* Effetto Focus per entrambi */
+.date-picker:focused, .combo-box:focused, .combo-box:showing {
+    -fx-border-color: #991845;
+    -fx-background-color: #FFFFFF;
+}
+
+/* --- STILE LISTA A COMPARSA (COMBOBOX) --- */
+.combo-box-popup .list-view {
+    -fx-background-color: #FFF8DF; /* Sfondo Vanilla Cloud */
+    -fx-background-radius: 8;
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 4);
+    -fx-padding: 4;
+}
+
+/* Stile delle singole voci (Nazioni) a riposo */
+.combo-box-popup .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1A1A24;
+    -fx-padding: 10 15 10 15;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6;
+    /* Bordo trasparente di base per evitare che il testo "salti" all'hover */
+    -fx-border-color: transparent;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+}
+
+/* Hover e Selezione: Stile a "Glow" come le TextField */
+.combo-box-popup .list-cell:hover,
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #991845;
+    -fx-text-fill: #991845;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.25), 8, 0.1, 0, 0);
+}
+
+/* --- STILE CHIP INTERESSI (TOGGLE BUTTON) --- */
+.interest-chip {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20 10 20;
+    -fx-text-fill: #4B5563;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+.interest-chip:hover {
+    -fx-border-color: #991845;
+    -fx-background-color: #FFFFFF;
+}
+.interest-chip:selected {
+    -fx-background-color: #991845;
+    -fx-border-color: #991845;
+    -fx-text-fill: white;
+}
+
+/* --- STILE CHIP INTERESSI COMPATTI (Griglia a 3 colonne) --- */
+.interest-chip-compact {
+    -fx-background-color: rgba(255, 255, 255, 0.7);
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: #4B5563;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+.interest-chip-compact:hover {
+    -fx-border-color: #991845;
+    -fx-background-color: #FFFFFF;
+}
+.interest-chip-compact:selected {
+    -fx-background-color: #991845;
+    -fx-border-color: #991845;
+    -fx-text-fill: white;
+}
+
+/* --- SCROLLPANE PERSONALIZZATA (Senza bordi, scrollbar coordinata) --- */
+.custom-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+.custom-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+.custom-scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+}
+.custom-scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #E2DCC8;
+    -fx-background-radius: 4px;
+}
+.custom-scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #991845;
+}
+.custom-scroll-pane .scroll-bar .increment-button,
+.custom-scroll-pane .scroll-bar .decrement-button {
+    -fx-height: 0px;
+    -fx-background-color: transparent;
+}
+
+/* --- STILE TAB MACRO-CATEGORIE (Pannello Sinistra) --- */
+.category-tab {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 10 14 10 14;
+    -fx-text-fill: #4B5563;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+.category-tab:hover {
+    -fx-background-color: rgba(153, 24, 69, 0.08);
+    -fx-text-fill: #991845;
+}
+.category-tab:selected {
+    -fx-background-color: #991845;
+    -fx-text-fill: white;
 }

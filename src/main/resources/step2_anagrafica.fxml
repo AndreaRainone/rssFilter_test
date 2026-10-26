@@ -1,23 +1,54 @@
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?xml version="1.0" encoding="UTF-8"?>
-<VBox spacing="15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step2Controller">
-    <Label text="Informazioni Personali" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1A1A24;"/>
-    <TextField fx:id="nomeField" promptText="NOME" styleClass="input-field"/>
-    <TextField fx:id="cognomeField" promptText="COGNOME" styleClass="input-field"/>
-    <!-- Per semplificare usiamo TextField, ma potresti usare DatePicker e ComboBox -->
-    <TextField promptText="DATA DI NASCITA (GG/MM/AAAA)" styleClass="input-field"/>
-    <TextField promptText="NAZIONE" styleClass="input-field"/>
 
-    <Region VBox.vgrow="ALWAYS" />
-    <HBox spacing="10" alignment="CENTER_RIGHT">
-        <Button text="Indietro" styleClass="btn-secondary" onAction="#goBack"/>
-        <Button text="Annulla" style="-fx-background-color: transparent; -fx-text-fill: #555; -fx-cursor: hand;"/>
-        <Button text="Avanti" styleClass="btn-primary" prefWidth="100" onAction="#goNext"/>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="rootContainer" spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="it.faris.Step2Controller">
+    <!-- Usiamo un GridPane per affiancare i campi 2 a 2 -->
+    <GridPane hgap="15" vgap="20">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="50" />
+            <ColumnConstraints percentWidth="50" />
+        </columnConstraints>
+
+        <TextField fx:id="nomeField" promptText="Nome" styleClass="input-field" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="cognomeField" promptText="Cognome" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <!-- I componenti avranno larghezza massima per riempire la cella -->
+        <DatePicker fx:id="dataNascitaPicker" maxWidth="Infinity" promptText="gg / mm / aaaa" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <ComboBox fx:id="nazioneComboBox" maxWidth="Infinity" promptText="Nazione" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <Region minHeight="20" VBox.vgrow="ALWAYS" />
+
+    <HBox alignment="CENTER_RIGHT" spacing="15">
+        <!-- Bottone outline come da mockup -->
+        <Button onAction="#goBack" styleClass="btn-outline" text="Indietro">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Button>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label style="-fx-text-fill: #888; -fx-font-weight: bold; -fx-cursor: hand;" text="Annulla">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Label>
+        <Button onAction="#goNext" prefWidth="120" styleClass="btn-primary" text="Avanti">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Button>
     </HBox>
 </VBox>

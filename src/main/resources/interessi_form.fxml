@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<StackPane styleClass="transparent-root" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.InteressiFormController" prefWidth="800" prefHeight="560">
+
+    <!-- Card fluttuante principale -->
+    <VBox fx:id="mainCard" styleClass="floating-card" spacing="20" style="-fx-padding: 30 35 30 35;">
+
+        <!-- Header -->
+        <HBox alignment="TOP_RIGHT">
+            <VBox spacing="4" HBox.hgrow="ALWAYS">
+                <Label text="Preferenze Tematiche &amp; Feed" styleClass="title-label"/>
+                <Label text="Seleziona le macro-aree a sinistra e personalizza i tag di tuo interesse a destra" styleClass="subtitle-label"/>
+            </VBox>
+            <Label text="✕" styleClass="close-btn" onMouseClicked="#closeWindow"/>
+        </HBox>
+
+        <!-- CORPO PRINCIPALE A DUE PANNELLI (Master-Detail) -->
+        <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+            <!-- PANNELLO SINISTRA: Macro-Categorie (Tab di navigazione) -->
+            <VBox spacing="6" prefWidth="240" style="-fx-padding: 5 0 5 0;">
+                <ToggleButton text="🌍 Informazione &amp; Attualità" fx:id="tabInfo" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory" selected="true"/>
+                <ToggleButton text="💻 Tecnologia &amp; Code" fx:id="tabTech" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory"/>
+                <ToggleButton text="🚀 Scienza &amp; Spazio" fx:id="tabScienza" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory"/>
+                <ToggleButton text="📈 Business &amp; Finanza" fx:id="tabBusiness" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory"/>
+                <ToggleButton text="🎭 Cultura &amp; Società" fx:id="tabCultura" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory"/>
+                <ToggleButton text="🎮 Geek &amp; Community" fx:id="tabGeek" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory"/>
+                <ToggleButton text="☕ Lifestyle &amp; Sport" fx:id="tabLifestyle" styleClass="category-tab" maxWidth="Infinity" onAction="#switchCategory"/>
+            </VBox>
+
+            <!-- Separatore verticale discreto -->
+            <Separator orientation="VERTICAL" style="-fx-background-color: #E2DCC8;"/>
+
+            <!-- PANNELLO DESTRA: Sottocategorie e Tag dinamici (ScrollPane pulita) -->
+            <ScrollPane fitToWidth="true" styleClass="custom-scroll-pane" HBox.hgrow="ALWAYS">
+                <StackPane fx:id="rightContentArea" style="-fx-padding: 5 10 5 5;">
+                    <!-- I container delle sottocategorie verranno iniettati o attivati qui via codice -->
+                </StackPane>
+            </ScrollPane>
+
+        </HBox>
+
+        <!-- FOOTER: Pulsante di salvataggio centrale -->
+        <VBox alignment="CENTER" style="-fx-padding: 5 0 0 0;">
+            <Button text="Salva Preferenze" styleClass="btn-primary" prefWidth="240" onAction="#savePreferences"/>
+        </VBox>
+
+    </VBox>
+</StackPane>

@@ -1,21 +1,45 @@
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 <?xml version="1.0" encoding="UTF-8"?>
-<VBox spacing="15" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.Step3Controller">
-    <Label text="Sei un esperto?" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #1A1A24;"/>
-    <Label text="Lascia il tuo contributo sulla piattaforma! Inserisci il codice Token fornito dall'amministrazione per abilitare le funzioni da Esperto." styleClass="subtitle-label"/>
 
-    <TextField fx:id="tokenField" promptText="INSERISCI TOKEN" styleClass="input-field" style="-fx-font-size: 16px; -fx-alignment: center;"/>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-    <Region VBox.vgrow="ALWAYS" />
-    <HBox spacing="15" alignment="CENTER_RIGHT">
-        <Button text="Indietro" styleClass="btn-secondary" onAction="#goBack"/>
-        <Button text="Ignora" styleClass="btn-secondary" style="-fx-text-fill: #888;" onAction="#goNext"/>
-        <Button text="Avanti" styleClass="btn-primary" prefWidth="100" onAction="#goNext"/>
+<VBox spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="it.faris.Step3Controller">
+
+    <!-- Box di avviso Rosa -->
+    <HBox alignment="CENTER_LEFT" spacing="15" styleClass="alert-box">
+        <!-- Finta icona per simulare il badge -->
+        <Label style="-fx-background-color: #991845; -fx-text-fill: white; -fx-background-radius: 50; -fx-min-width: 35; -fx-min-height: 35; -fx-alignment: center; -fx-font-weight: bold;" text="✓" />
+        <VBox spacing="2">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #111827;" text="Sei un esperto?" />
+            <Label style="-fx-text-fill: #4B5563; -fx-font-size: 13px; -fx-wrap-text: true;" text="Lascia il tuo contributo sulla piattaforma. Inserisci il token che attesti la tua professione." />
+        </VBox>
+    </HBox>
+
+    <TextField fx:id="tokenField" promptText="TOKEN" style="-fx-pref-height: 55px; -fx-font-size: 18px; -fx-alignment: center;" styleClass="input-field">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+      </font></TextField>
+
+    <Region minHeight="20" VBox.vgrow="ALWAYS" />
+
+    <HBox alignment="CENTER_RIGHT" spacing="15">
+        <Button onAction="#goBack" styleClass="btn-outline" text="Indietro">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Button>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label onMouseClicked="#goNext" style="-fx-text-fill: #888; -fx-font-weight: bold; -fx-cursor: hand;" text="Ignora">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Label>
+        <Button onAction="#goNext" prefWidth="120" styleClass="btn-primary" text="Verifica">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="12.0" />
+         </font></Button>
     </HBox>
 </VBox>
