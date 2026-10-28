@@ -2,13 +2,18 @@ package it.faris;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.util.*;
 
@@ -164,8 +169,31 @@ public class InteressiFormController {
 
     @FXML
     private void savePreferences() {
-        System.out.println("Tag totali salvati per il filtraggio RSS: " + tagSelezionati);
-        closeWindow();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/bacheca_layout.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+            scene.setFill(Color.web("#FFF8DF")); // Vanilla Cloud solido per la Bacheca
+
+            Stage bachecaStage = new Stage();
+            bachecaStage.initStyle(StageStyle.TRANSPARENT);
+
+            // Limiti minimi HD
+            bachecaStage.setMinWidth(1280);
+            bachecaStage.setMinHeight(720);
+
+            // Apertura massimizzata
+            bachecaStage.setMaximized(true);
+
+            bachecaStage.setScene(scene);
+            bachecaStage.show();
+
+            closeWindow();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<StackPane styleClass="transparent-root" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.BachecaLayoutController">
+
+    <!-- Shell Principale responsive con estensione a tutto schermo -->
+    <HBox fx:id="mainCard" styleClass="bacheca-shell" style="-fx-padding: 0;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+
+        <!-- SIDEBAR SINISTRA STATICA (Larghezza FISSA 280px) -->
+        <VBox prefWidth="280" minWidth="280" maxWidth="280" style="-fx-background-color: #FFF8DF; -fx-background-radius: 12 0 0 12; -fx-padding: 30 20 30 20;" spacing="25">
+
+            <!-- Logo & Brand -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="FARIS" style="-fx-font-weight: bold; -fx-font-size: 26px; -fx-text-fill: #991845;"/>
+            </HBox>
+
+            <!-- Navigazione Principale -->
+            <VBox spacing="10">
+                <ToggleButton text="🏠 Bacheca Notizie" fx:id="btnNavBacheca" styleClass="sidebar-btn" maxWidth="Infinity" selected="true" onAction="#loadBachecaView"/>
+                <ToggleButton text="📡 Gestione Sorgenti" fx:id="btnNavSorgenti" styleClass="sidebar-btn" maxWidth="Infinity" onAction="#loadSorgentiView"/>
+                <ToggleButton text="⚙️ Profilo &amp; Interessi" fx:id="btnNavProfilo" styleClass="sidebar-btn" maxWidth="Infinity" onAction="#loadProfiloView"/>
+            </VBox>
+
+            <Separator style="-fx-background-color: transparent; -fx-border-color: #E2DCC8; -fx-border-width: 1 0 0 0;"/>
+
+            <!-- Categorie Attive (Pulsanti Interattivi) -->
+            <VBox spacing="10" VBox.vgrow="ALWAYS">
+                <Label text="CATEGORIE SELEZIONATE" style="-fx-font-size: 11px; -fx-text-fill: #888888; -fx-font-weight: bold;"/>
+                <VBox spacing="6">
+                    <Button text="● Tecnologia (8)" styleClass="sidebar-category-btn" maxWidth="Infinity"/>
+                    <Button text="● Global News (6)" styleClass="sidebar-category-btn" maxWidth="Infinity"/>
+                    <Button text="● Anime &amp; Manga (4)" styleClass="sidebar-category-btn" maxWidth="Infinity"/>
+                    <Button text="● Open Source (3)" styleClass="sidebar-category-btn" maxWidth="Infinity"/>
+                </VBox>
+            </VBox>
+
+            <!-- Tasto Disconnetti -->
+            <Button text="🚪 Disconnetti" styleClass="btn-outline" maxWidth="Infinity" onAction="#handleLogout"/>
+        </VBox>
+
+        <Separator orientation="VERTICAL" style="-fx-background-color: transparent; -fx-border-color: #E2DCC8; -fx-border-width: 0 1 0 0;"/>
+
+        <!-- AREA CENTRALE DINAMICA (Espandibile) -->
+        <StackPane fx:id="centerContentArea" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" style="-fx-background-color: #FDFBF5; -fx-padding: 30 40 30 40;">
+            <!-- Qui viene iniettata la vista bacheca_feed_view.fxml -->
+        </StackPane>
+
+        <Separator orientation="VERTICAL" style="-fx-background-color: transparent; -fx-border-color: #E2DCC8; -fx-border-width: 0 1 0 0;"/>
+
+        <!-- SIDEBAR DESTRA STATICA (Larghezza FISSA 320px) -->
+        <VBox prefWidth="320" minWidth="320" maxWidth="320" style="-fx-background-color: #FFF8DF; -fx-background-radius: 0 12 12 0; -fx-padding: 30 22 30 22;" spacing="25">
+
+            <!-- Header Utente & Controlli Finestra (Minimizza, Massimizza, Chiudi) -->
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Dolores S." style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #1A1A24;"/>
+                    <Label text="Ruolo: Esperto" style="-fx-font-size: 11px; -fx-text-fill: #991845; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <!-- Pulsanti Finestra Custom -->
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Label text="—" styleClass="window-control-btn" onMouseClicked="#minimizeApp"/>
+                    <Label text="🗖" styleClass="window-control-btn" onMouseClicked="#toggleMaximizeApp"/>
+                    <Label text="✕" styleClass="close-btn" onMouseClicked="#closeApp"/>
+                </HBox>
+            </HBox>
+
+            <!-- Widget Assistente AI -->
+            <VBox styleClass="ai-widget-card" spacing="12">
+                <Label text="Chiedi a FARIS AI" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: white;"/>
+                <Label text="Interroga il modello locale sulle notizie e le note registrate." style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 12px;" wrapText="true"/>
+                <Button text="Apri Assistente 💬" style="-fx-background-color: white; -fx-text-fill: #991845; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" maxWidth="Infinity" onAction="#openAIAssistant"/>
+            </VBox>
+
+            <!-- Status Sincronizzazione Sorgenti -->
+            <VBox spacing="12">
+                <Label text="Stato Sincronizzazione" style="-fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: #1A1A24;"/>
+                <VBox spacing="8">
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="🟢" style="-fx-font-size: 10px;"/>
+                        <Label text="TechCrunch RSS" style="-fx-font-size: 12px; -fx-text-fill: #4B5563;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="2m fa" style="-fx-font-size: 10px; -fx-text-fill: #888888;"/>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="🟢" style="-fx-font-size: 10px;"/>
+                        <Label text="Reuters World" style="-fx-font-size: 12px; -fx-text-fill: #4B5563;"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Label text="5m fa" style="-fx-font-size: 10px; -fx-text-fill: #888888;"/>
+                    </HBox>
+                </VBox>
+                <Button text="Forza Aggiornamento" styleClass="btn-outline" maxWidth="Infinity" style="-fx-font-size: 11px;" onAction="#forceSync"/>
+            </VBox>
+
+        </VBox>
+
+    </HBox>
+</StackPane>

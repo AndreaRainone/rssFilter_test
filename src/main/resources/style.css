@@ -42,7 +42,6 @@
     -fx-pref-height: 50px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.4), 15, 0, 0, 5);
-
 }
 
 .btn-primary:hover {
@@ -57,7 +56,6 @@
     -fx-cursor: hand;
 }
 
-/* Indicatori di Step (Pillole superiori) */
 .step-indicator {
     -fx-background-color: #E2DCC8;
     -fx-background-radius: 5;
@@ -68,34 +66,30 @@
     -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.4), 10, 0, 0, 2);
 }
 
-/* Sottotitolo */
 .subtitle-label {
     -fx-font-size: 14px;
     -fx-text-fill: #777777;
 }
 
-/* Rimuove il background interno di default e imposta il padding per l'icona */
 .custom-input {
     -fx-background-color: transparent;
     -fx-border-color: #E2DCC8;
     -fx-border-radius: 12;
     -fx-pref-height: 50px;
-    -fx-padding: 0 15 0 45; /* Spazio a sinistra per l'icona */
+    -fx-padding: 0 15 0 45;
     -fx-font-size: 14px;
 }
 
-/* Stile per l'icona fissa a sinistra */
 .input-icon {
     -fx-font-size: 16px;
     -fx-text-fill: #999999;
-    -fx-translate-x: 15; /* Posiziona l'icona nel padding del TextField */
+    -fx-translate-x: 15;
 }
 
-/* Etichetta fluttuante di base */
 .floating-label {
     -fx-text-fill: #999999;
     -fx-font-size: 14px;
-    -fx-translate-x: 40; /* Allinea il testo dopo l'icona */
+    -fx-translate-x: 40;
 }
 
 .close-btn {
@@ -114,8 +108,6 @@
     -fx-underline: false;
     -fx-border-color: transparent;
     -fx-background-color: transparent;
-
-    /* Azzeramento del focus ring nativo di JavaFX */
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
     -fx-background-insets: 0;
@@ -125,25 +117,21 @@
     -fx-text-fill: #C91D5E;
 }
 
-/* Stile base condiviso da entrambi i finti-link */
 .link-forgot, .link-register {
-    -fx-text-fill: #991845; /* Deep Berry */
+    -fx-text-fill: #991845;
     -fx-font-weight: bold;
-    -fx-cursor: hand;       /* Mostra la manina al passaggio del mouse */
+    -fx-cursor: hand;
     -fx-font-family: "Inter", "Segoe UI", sans-serif;
 }
 
-/* Effetto 1: Solo cambio colore (più scuro) per "Forgot password?" */
 .link-forgot:hover {
-    -fx-text-fill: #6d1131; /* Un tono più scuro di Deep Berry */
+    -fx-text-fill: #6d1131;
 }
 
-/* Effetto 2: Solo sottolineatura per "Register" */
 .link-register:hover {
     -fx-underline: true;
 }
 
-/* Arrotonda la scatolina della checkbox e imposta i colori base */
 .check-box .box {
     -fx-background-radius: 6;
     -fx-border-radius: 6;
@@ -151,18 +139,15 @@
     -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Colora la checkbox di Deep Berry quando viene cliccata/selezionata */
 .check-box:selected .box {
     -fx-background-color: #991845;
     -fx-border-color: #991845;
 }
 
-/* Colora la spunta (il segno di check) di bianco */
 .check-box:selected .mark {
     -fx-background-color: white;
 }
 
-/* --- FIX BOTTONI MANCANTI (Indietro e Verifica) --- */
 .btn-outline {
     -fx-background-color: transparent;
     -fx-border-color: #D1D5DB;
@@ -190,14 +175,12 @@
     -fx-background-color: #1F2937;
 }
 
-/* --- FIX DISTANZA RIGHE RIEPILOGO (Step 4) --- */
 .summary-row {
-    -fx-padding: 12 0 12 0; /* Aggiunge spazio sopra e sotto ogni riga */
+    -fx-padding: 12 0 12 0;
     -fx-border-color: #F3F4F6;
-    -fx-border-width: 0 0 1 0; /* Sottile linea di separazione sotto ogni riga */
+    -fx-border-width: 0 0 1 0;
 }
 
-/* --- FIX NAZIONE (COMBOBOX NON EDITABILE) --- */
 .combo-box {
     -fx-background-color: rgba(255, 255, 255, 0.6);
     -fx-border-color: #E2DCC8;
@@ -214,7 +197,6 @@
     -fx-background-color: transparent;
 }
 
-/* --- FIX CALENDARIO (DATEPICKER) --- */
 .date-picker {
     -fx-background-color: rgba(255, 255, 255, 0.6);
     -fx-border-color: #E2DCC8;
@@ -223,25 +205,23 @@
     -fx-pref-height: 45px;
 }
 .date-picker > .text-field {
-    -fx-background-color: transparent; /* Fa sparire il quadrato bianco */
+    -fx-background-color: transparent;
     -fx-padding: 0 15 0 15;
 }
 .date-picker .arrow-button {
-    -fx-background-color: transparent; /* Fa sparire il bottone grigio */
+    -fx-background-color: transparent;
 }
 .date-picker .arrow-button .arrow {
     -fx-background-color: #888888;
 }
 
-/* Effetto Focus per entrambi */
 .date-picker:focused, .combo-box:focused, .combo-box:showing {
     -fx-border-color: #991845;
     -fx-background-color: #FFFFFF;
 }
 
-/* --- STILE LISTA A COMPARSA (COMBOBOX) --- */
 .combo-box-popup .list-view {
-    -fx-background-color: #FFF8DF; /* Sfondo Vanilla Cloud */
+    -fx-background-color: #FFF8DF;
     -fx-background-radius: 8;
     -fx-border-color: #E2DCC8;
     -fx-border-radius: 8;
@@ -249,20 +229,17 @@
     -fx-padding: 4;
 }
 
-/* Stile delle singole voci (Nazioni) a riposo */
 .combo-box-popup .list-cell {
     -fx-background-color: transparent;
     -fx-text-fill: #1A1A24;
     -fx-padding: 10 15 10 15;
     -fx-font-size: 14px;
     -fx-background-radius: 6;
-    /* Bordo trasparente di base per evitare che il testo "salti" all'hover */
     -fx-border-color: transparent;
     -fx-border-radius: 6;
     -fx-border-width: 1;
 }
 
-/* Hover e Selezione: Stile a "Glow" come le TextField */
 .combo-box-popup .list-cell:hover,
 .combo-box-popup .list-cell:filled:selected {
     -fx-background-color: #FFFFFF;
@@ -272,7 +249,6 @@
     -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.25), 8, 0.1, 0, 0);
 }
 
-/* --- STILE CHIP INTERESSI (TOGGLE BUTTON) --- */
 .interest-chip {
     -fx-background-color: rgba(255, 255, 255, 0.7);
     -fx-border-color: #E2DCC8;
@@ -294,7 +270,6 @@
     -fx-text-fill: white;
 }
 
-/* --- STILE CHIP INTERESSI COMPATTI (Griglia a 3 colonne) --- */
 .interest-chip-compact {
     -fx-background-color: rgba(255, 255, 255, 0.7);
     -fx-border-color: #E2DCC8;
@@ -317,7 +292,6 @@
     -fx-text-fill: white;
 }
 
-/* --- SCROLLPANE PERSONALIZZATA (Senza bordi, scrollbar coordinata) --- */
 .custom-scroll-pane {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -343,7 +317,6 @@
     -fx-background-color: transparent;
 }
 
-/* --- STILE TAB MACRO-CATEGORIE (Pannello Sinistra) --- */
 .category-tab {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -363,4 +336,173 @@
 .category-tab:selected {
     -fx-background-color: #991845;
     -fx-text-fill: white;
+}
+
+/* ==========================================================================
+   SEZIONE: BACHECA FEED & SHELL LAYOUT
+   ========================================================================== */
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 8;
+    -fx-padding: 12 16 12 16;
+    -fx-text-fill: #4B5563;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+}
+.sidebar-btn:hover {
+    -fx-background-color: rgba(153, 24, 69, 0.08);
+    -fx-text-fill: #991845;
+}
+.sidebar-btn:selected {
+    -fx-background-color: rgba(153, 24, 69, 0.15);
+    -fx-text-fill: #991845;
+}
+
+.sidebar-category-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #4B5563;
+    -fx-font-size: 12px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 6 10 6 10;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+.sidebar-category-btn:hover {
+    -fx-background-color: rgba(153, 24, 69, 0.08);
+    -fx-text-fill: #991845;
+    -fx-font-weight: bold;
+}
+
+.sidebar-category-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #4B5563;
+    -fx-padding: 4 0 4 10;
+}
+
+.search-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E2DCC8;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+
+.content-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #EDE8D5;
+    -fx-border-radius: 12;
+    -fx-padding: 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.07), 10, 0, 0, 4);
+}
+.content-card:hover {
+    -fx-border-color: #D3CBB5;
+    -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.18), 16, 0, 0, 6);
+}
+
+.card-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #1A1A24;
+}
+.card-description {
+    -fx-font-size: 13px;
+    -fx-text-fill: #555555;
+}
+.card-meta {
+    -fx-font-size: 11px;
+    -fx-text-fill: #888888;
+}
+
+.badge-tech, .badge-category-tech {
+    -fx-background-color: rgba(138, 43, 226, 0.12);
+    -fx-text-fill: #8A2BE2;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 10;
+}
+.badge-global, .badge-category-global {
+    -fx-background-color: rgba(30, 144, 255, 0.12);
+    -fx-text-fill: #1E90FF;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 10;
+}
+.badge-expert-note {
+    -fx-background-color: rgba(153, 24, 69, 0.12);
+    -fx-text-fill: #991845;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 10;
+}
+
+.btn-primary-small {
+    -fx-background-color: #991845;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 6 16 6 16;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.btn-primary-small:hover {
+    -fx-background-color: #7A1337;
+}
+
+.btn-outline-small {
+    -fx-background-color: transparent;
+    -fx-border-color: #991845;
+    -fx-border-radius: 8;
+    -fx-text-fill: #991845;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 5 14 5 14;
+    -fx-cursor: hand;
+}
+.btn-outline-small:hover {
+    -fx-background-color: rgba(153, 24, 69, 0.08);
+}
+
+.ai-widget-card {
+    -fx-background-color: linear-gradient(to bottom right, #991845, #5A0E28);
+    -fx-background-radius: 12;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(gaussian, rgba(153, 24, 69, 0.3), 10, 0, 0, 5);
+}
+
+.window-control-btn {
+    -fx-font-size: 14px;
+    -fx-text-fill: #888888;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-padding: 0 4 0 4;
+}
+.window-control-btn:hover {
+    -fx-text-fill: #991845;
+}
+
+.card-image-container {
+    -fx-background-color: #E2DCC8;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+}
+
+.card-image {
+    -fx-background-radius: 8;
+}
+
+/* Sfondo e contenitore della Bacheca Massimizzata (Senza ombra esterna pesante) */
+.bacheca-shell {
+    -fx-background-color: #FFF8DF;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-effect: null; /* Rimuove il dropshadow massivo che causa lo scatto */
 }
