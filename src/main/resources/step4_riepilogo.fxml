@@ -88,6 +88,7 @@
     <Region minHeight="10" VBox.vgrow="ALWAYS" />
 
     <!-- Footer con tutti i bottoni sulla stessa riga -->
+    //TEST
     <HBox alignment="CENTER_RIGHT" spacing="15">
         <Button onAction="#goBack" styleClass="btn-outline" text="Indietro">
             <font>

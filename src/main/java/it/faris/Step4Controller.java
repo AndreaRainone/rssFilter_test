@@ -28,7 +28,7 @@ public class Step4Controller implements WizardStep {
         lblNome.setText(vm.nome.get() + " " + vm.cognome.get());
         lblNazione.setText(vm.nazione.get() != null && !vm.nazione.get().isEmpty() ? vm.nazione.get() : "Non specificata");
 
-        // ******** CONTROLLO E FORMATTAZIONE DATA *****************
+        // ******** CONTROLLO E FORMATTAZIONE DATA *****************TEST
         if (vm.dataNascita.getValue() == null) {
             lblDataNascita.setText("Non Specificato");
         } else {
