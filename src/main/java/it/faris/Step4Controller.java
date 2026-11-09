@@ -11,8 +11,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.time.LocalDate;
+
 public class Step4Controller implements WizardStep {
-    @FXML private Label lblUser, lblNome, lblNazione, lblPassword, lblToken, eyeIcon;
+    @FXML private Label lblUser, lblNome, lblDataNascita, lblNazione, lblPassword, lblToken, eyeIcon;
     private WizardBaseController base;
     private RegistrationViewModel vm;
     private boolean isPasswordVisible = false;
@@ -26,6 +28,17 @@ public class Step4Controller implements WizardStep {
         lblNome.setText(vm.nome.get() + " " + vm.cognome.get());
         lblNazione.setText(vm.nazione.get() != null && !vm.nazione.get().isEmpty() ? vm.nazione.get() : "Non specificata");
 
+        // ******** CONTROLLO E FORMATTAZIONE DATA *****************
+        if (vm.dataNascita.getValue() == null) {
+            lblDataNascita.setText("Non Specificato");
+        } else {
+            // Formatta la data in formato italiano (dd/MM/yyyy) coerente con lo Step 2
+            java.time.LocalDate data = vm.dataNascita.getValue();
+            java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            lblDataNascita.setText(formatter.format(data));
+        }
+        //**********************************************************
+
         String tokenVal = vm.token.get();
         if (tokenVal != null && !tokenVal.trim().isEmpty()) {
             lblToken.setText("Esperto (" + tokenVal + ")");
@@ -33,7 +46,7 @@ public class Step4Controller implements WizardStep {
             lblToken.setText("Utente Standard");
         }
 
-        lblPassword.setText("••••••••");
+        lblPassword.setText("********");
     }
 
     @FXML
@@ -43,7 +56,7 @@ public class Step4Controller implements WizardStep {
             lblPassword.setText(vm.password.get());
             eyeIcon.setText("🙈");
         } else {
-            lblPassword.setText("••••••••");
+            lblPassword.setText("********");
             eyeIcon.setText("👁");
         }
     }
