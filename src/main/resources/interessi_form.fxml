@@ -44,7 +44,7 @@
 
         <!-- FOOTER: Pulsante di salvataggio centrale -->
         <VBox alignment="CENTER" style="-fx-padding: 5 0 0 0;">
-            <Button text="Salva Preferenze" styleClass="btn-primary" prefWidth="240" onAction="#savePreferences"/>
+            <Button text="Conferma Registrazione" styleClass="btn-primary" prefWidth="240" onAction="#savePreferences"/>
         </VBox>
 
     </VBox>

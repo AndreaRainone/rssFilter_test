@@ -88,7 +88,6 @@
     <Region minHeight="10" VBox.vgrow="ALWAYS" />
 
     <!-- Footer con tutti i bottoni sulla stessa riga -->
-    //TEST
     <HBox alignment="CENTER_RIGHT" spacing="15">
         <Button onAction="#goBack" styleClass="btn-outline" text="Indietro">
             <font>
@@ -99,7 +98,7 @@
             <font>
                 <Font name="Berlin Sans FB Demi Bold" size="12.0" />
             </font></Label>
-        <Button onAction="#submit" styleClass="btn-primary" text="Completa Registrazione">
+        <Button onAction="#submit" styleClass="btn-primary" text="Avanti">
             <font>
                 <Font name="Berlin Sans FB Demi Bold" size="12.0" />
             </font></Button>

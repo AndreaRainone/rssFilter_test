@@ -43,7 +43,7 @@ public class Step4Controller implements WizardStep {
         if (tokenVal != null && !tokenVal.trim().isEmpty()) {
             lblToken.setText("Esperto (" + tokenVal + ")");
         } else {
-            lblToken.setText("Utente Standard");
+            lblToken.setText("Lettore");
         }
 
         lblPassword.setText("********");

@@ -16,7 +16,7 @@
 
         <HBox alignment="TOP_RIGHT">
             <VBox spacing="4" HBox.hgrow="ALWAYS">
-                <Label styleClass="title-label" text="Bentornato">
+                <Label styleClass="title-label" text="Benvenuto">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="14.0" />
                </font></Label>
