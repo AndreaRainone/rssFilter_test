@@ -13,19 +13,31 @@ Definizione del flusso di lavoro obbligatorio per tutti i membri del team.
 git switch main
 git pull origin main
 ```
-<mark> **Prima di editare SINCRONIZZARE repository online e locale, verificando i branch attivi**
+> [!IMPORTANT]
+>**Prima di editare SINCRONIZZARE repository online e locale, verificando prima i branch attivi**
 
 ```bash
 git branch -a
 ```
 
-<img width="499" height="99" alt="branch" src="https://github.com/user-attachments/assets/54fce4e2-7a42-45a8-851a-37909f6b9ac9" />
+<img width="499" height="99" alt="branch" src="https://github.com/user-attachments/assets/9bcc68a0-4e80-4dbf-83d3-45cfbd984481" />
+
+**Subito sotto il comando ci sono i branch locali che avete attivi.**
+**Subito dopo "main" ci sono i branch remoti attivi**
+
+> [!WARNING]
+> **SE la vostra precedente Pull Request è stata accettata e fatto il merge con il main, si deve sincronizzare la repository locale con quella online.**
+
+**Cancellare il branch locale (l'eliminazione avviene solo se le modifiche del branch sono già state unite al main)**
+```bash
+git branch -d nomeBranch
+```
+**Dopodichè**
 
 ```bash
-git fetch
 git fetch --prune
 ```
-
+**Questo ultimo comando vi sincronizzerà la repository locale con quella online, cancellando i riferimenti a branch non più attivi**
 
 ## ***2. Creazione Branch di Lavoro***
 **Per ogni Task e/o Sub-Task assegnato (a meno di blocchi contigui e correlati), lavorare su un branch dedicato.**
@@ -52,11 +64,11 @@ git switch -c nomeBranch
     ```bash
     git commit -m "CODICE_TASKJIRA Commento"
     ```
-    <mark>Esempio: 
+    Esempio: 
     ```bash
     git commit -m "ISFARIS-3 Aggiunto obiettivi del sistema"
     ```
-    <mark>NOTA: se lavorate su più sottotask, per migliorare la tracciabilità, il messaggio del commit deve contenere tutti i codici dei sottotask di cui state facendo la pull request.
+    NOTA: se lavorate su più sottotask, per migliorare la tracciabilità, il messaggio del commit deve contenere tutti i codici dei sottotask di cui state facendo la pull request.
     ```bash
     git commit -m "ISFARIS-3 ISFARIS-4 ISFARIS-5 Aggiunto obiettivi del sistema"
     ```
@@ -78,7 +90,12 @@ git switch -c nomeBranch
 
 3. Scrivere nella sezione "Comunicazioni" di Discord, taggando il revisore e avvertendolo di revisionare quel task
 
-## ***4. Altri comandi utili per gestire i branch***
+## ***4. Nota per i revisori***
+1. **Lasciare quantomeno un piccolo commento durante la review, che sia accettata/rifiutata/richiesta la modifica.**
+2. **Dopo aver accettato la pull request e fatto il merge, è <mark>OBBLIGATORIO</mark>  cancellare il branch che l'ha creato**
+
+
+## ***5. Altri comandi utili per gestire i branch***
 
 Muoversi tra i branch
 ```bash
@@ -97,6 +114,6 @@ git restore .
 ----------------------------------------------------------------------------------------------------
 
 ***Nota a margine***: 
-dopo essere stato revisionato il push sarà fatto da chi lo ha revisionato, ma risulterà comunque richiesto dal membro del team originale, quindi la traccia del lavoro svolto rimarrà.
+dopo essere stato revisionato il merge sarà fatto da chi lo ha revisionato, ma risulterà comunque richiesto dal membro del team originale, quindi la traccia del lavoro svolto rimarrà.
 
     
