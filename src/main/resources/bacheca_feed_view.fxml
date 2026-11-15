@@ -73,7 +73,7 @@
 
                     <!-- Footer Pulsanti in Basso a Destra -->
                     <HBox alignment="BOTTOM_RIGHT" spacing="10">
-                        <Button text="✏️ Modifica Nota" styleClass="btn-outline-small" onAction="#handleAddNote"/>
+                        <Button text="✏️ Modifica Nota" styleClass="btn-outline-small" onAction="#handleModificaNota"/>
                         <Button text="Leggi Articolo" styleClass="btn-primary-small" onAction="#handleReadArticle"/>
                     </HBox>
                 </VBox>

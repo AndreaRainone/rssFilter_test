@@ -70,7 +70,7 @@
             <VBox styleClass="ai-widget-card" spacing="12">
                 <Label text="Chiedi a FARIS AI" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: white;"/>
                 <Label text="Interroga il modello locale sulle notizie e le note registrate." style="-fx-text-fill: rgba(255,255,255,0.85); -fx-font-size: 12px;" wrapText="true"/>
-                <Button text="Apri Assistente 💬" style="-fx-background-color: white; -fx-text-fill: #991845; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" maxWidth="Infinity" onAction="#openAIAssistant"/>
+                <Button text="Apri Assistente" style="-fx-background-color: white; -fx-text-fill: #991845; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" maxWidth="Infinity" onAction="#openAIAssistantGeneral"/>
             </VBox>
 
             <!-- Status Sincronizzazione Sorgenti -->

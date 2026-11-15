@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="main-window" stylesheets="@add-note.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.AddNoteController">
+
+    <!-- Top Bar macOS Style -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="top-bar">
+            <padding>
+                <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+                <Button fx:id="btnCancelMac" onAction="#handleCancel" styleClass="mac-button, mac-close" />
+                <Button styleClass="mac-button, mac-minimize" />
+                <Button styleClass="mac-button, mac-maximize" />
+            </HBox>
+            <Label fx:id="lblHeaderTitle" styleClass="header-title" text="Aggiungi Nota Esperto" />
+        </HBox>
+    </top>
+
+    <!-- Area Form -->
+    <center>
+        <VBox alignment="TOP_LEFT" spacing="20.0" styleClass="form-container">
+            <padding>
+                <Insets bottom="32.0" left="40.0" right="40.0" top="32.0" />
+            </padding>
+
+            <!-- Riferimento Notizia -->
+            <VBox spacing="8.0">
+                <Label styleClass="form-label" text="Notizia di riferimento:" />
+                <HBox styleClass="reference-badge">
+                    <Label fx:id="lblNewsTitle" styleClass="reference-text" text="Titolo della notizia selezionata..." wrapText="true" />
+                </HBox>
+            </VBox>
+
+            <!-- Campo Testo Nota -->
+            <VBox spacing="8.0" VBox.vgrow="ALWAYS">
+                <Label styleClass="form-label" text="Testo della nota:" />
+                <TextArea fx:id="txtNoteContent" promptText="Scrivi qui la tua nota o analisi sulla notizia..." styleClass="form-textarea" wrapText="true" VBox.vgrow="ALWAYS" />
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Footer con Azioni -->
+    <!-- Footer con Azioni -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="footer-bar">
+            <padding>
+                <Insets bottom="16.0" left="24.0" right="24.0" top="16.0" />
+            </padding>
+
+            <!-- Pulsante Elimina (visibile solo in modifica) -->
+            <Button fx:id="btnDelete" text="Elimina Nota" styleClass="btn-danger-outline" onAction="#handleDelete" visible="false" managed="false"/>
+
+            <HBox HBox.hgrow="ALWAYS" />
+
+            <Button fx:id="btnCancel" text="Annulla" styleClass="btn-secondary-outline" onAction="#handleCancel" />
+            <Button fx:id="btnSave" text="Salva Nota ✓" styleClass="btn-deepberry-primary" onAction="#handleSave" />
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="main-window" stylesheets="@article-detail.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.ArticleDetailController">
+
+    <!-- Top Bar macOS Style -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="top-bar">
+            <padding>
+                <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="6.0">
+                <Button fx:id="btnClose" onAction="#handleClose" styleClass="mac-button, mac-close" />
+                <Button fx:id="btnMinimize" onAction="#handleMinimize" styleClass="mac-button, mac-minimize" />
+                <Button fx:id="btnMaximize" onAction="#handleMaximize" styleClass="mac-button, mac-maximize" />
+            </HBox>
+            <Label styleClass="header-title" text="FARIS - Dettaglio Notizia" />
+        </HBox>
+    </top>
+
+    <!-- Area Contenuto Notizia -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="main-scroll-pane">
+            <VBox alignment="TOP_CENTER" spacing="0.0" styleClass="main-container">
+                <padding>
+                    <Insets bottom="24.0" left="32.0" right="32.0" top="24.0" />
+                </padding>
+
+                <!-- Card Principale Notizia (Stile Bacheca FARIS) -->
+                <VBox spacing="20.0" styleClass="article-card">
+                    <padding>
+                        <Insets bottom="28.0" left="28.0" right="28.0" top="28.0" />
+                    </padding>
+
+                    <!-- Intestazione: Badge Categoria e Meta Info -->
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                        <Label fx:id="lblCategory" styleClass="category-pill" text="Technology" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="lblMetaInfo" styleClass="meta-text" text="2 ore fa • TechCrunch" />
+                    </HBox>
+
+                    <!-- Titolo della Notizia -->
+                    <Label fx:id="lblTitle" styleClass="article-title" text="Rilasciata la nuova architettura esagonale per framework Java" wrapText="true" />
+
+                    <!-- Linea di Separazione Sottile -->
+                    <Region styleClass="divider" />
+
+                    <!-- Corpo del Testo e Miniatura Immagine RSS -->
+                    <HBox alignment="TOP_LEFT" spacing="24.0">
+                        <VBox spacing="14.0" HBox.hgrow="ALWAYS">
+                            <Label fx:id="lblContent" styleClass="article-body" text="Il nuovo aggiornamento introduce miglioramenti significativi nella gestione dei domini isolati e dei driven adapter per basi di dati relazionali. L'approccio ad architettura esagonale consente di separare nettamente la logica di business dalle infrastrutture esterne, garantendo un'elevata testabilità e manutenibilità nel tempo." wrapText="true" />
+                        </VBox>
+
+                        <!-- Miniatura Immagine RSS -->
+                        <VBox alignment="TOP_CENTER">
+                            <ImageView fx:id="imgThumbnail" fitHeight="160.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" styleClass="article-thumbnail" />
+                        </VBox>
+                    </HBox>
+
+                    <!-- Linea di Separazione Sottile -->
+                    <Region styleClass="divider" />
+
+                    <!-- Barra delle Azioni (Pulsanti Pill) -->
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                        <Button fx:id="btnBack" onAction="#handleBackToDashboard" styleClass="btn-secondary-outline" text="← Torna alla Bacheca" />
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <!-- Pulsante Outlined Nota (Stile MU_Bacheca) -->
+                        <Button fx:id="btnAddNote" onAction="#handleAddNote" styleClass="btn-note-outline" text="= Aggiungi Nota" />
+
+                        <!-- Pulsante DeepBerry Approfondisci con AI -->
+                        <Button fx:id="btnDeepenAI" onAction="#handleOpenAIContext" styleClass="btn-deepberry-primary" text="Approfondisci" />
+                    </HBox>
+
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

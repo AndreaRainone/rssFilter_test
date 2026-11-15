@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="main-window" stylesheets="@chat-style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.faris.ConversationalChatController">
+
+    <top>
+        <VBox spacing="0.0">
+            <!-- Barra Superiore macOS -->
+            <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="top-bar">
+                <padding>
+                    <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+                </padding>
+                <HBox alignment="CENTER_LEFT" spacing="6.0">
+                    <Button fx:id="btnBack" onAction="#handleBack" styleClass="mac-button, mac-close" />
+                    <Button styleClass="mac-button, mac-minimize" />
+                    <Button styleClass="mac-button, mac-maximize" />
+                </HBox>
+                <Label fx:id="lblHeaderTitle" styleClass="header-title" text="Assistente Conversazionale FARIS" />
+            </HBox>
+
+            <!-- Badge Contesto Notizia (Nascosto di default) -->
+            <HBox fx:id="contextBadgeContainer" alignment="CENTER_LEFT" managed="false" spacing="10.0" styleClass="context-badge-bar" visible="false">
+                <padding>
+                    <Insets bottom="8.0" left="16.0" right="16.0" top="8.0" />
+                </padding>
+                <Label styleClass="context-badge-tag" text="NOTIZIA ATTIVA" />
+                <Label fx:id="lblContextNewsTitle" maxWidth="400.0" styleClass="context-badge-title" text="Titolo Notizia..." HBox.hgrow="ALWAYS" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnClearContext" onAction="#handleClearContext" styleClass="context-badge-btn" text="Rimuovi filtro ✕" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Area Chat Dinamica -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" styleClass="chat-scroll-pane">
+            <VBox fx:id="chatContainer" spacing="16.0" styleClass="chat-container">
+                <padding>
+                    <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+                </padding>
+                <!-- I messaggi verranno aggiunti qui dinamicamente dal Controller -->
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <!-- Barra di Input -->
+    <bottom>
+        <VBox spacing="10.0" styleClass="footer-container">
+            <padding>
+                <Insets bottom="16.0" left="20.0" right="20.0" top="12.0" />
+            </padding>
+            <HBox alignment="CENTER" spacing="12.0">
+                <TextField fx:id="txtPrompt" promptText="Chiedi qualcosa all'Assistente FARIS..." styleClass="chat-input" HBox.hgrow="ALWAYS" onAction="#handleSendMessage"/>
+                <Button fx:id="btnSend" onAction="#handleSendMessage" styleClass="btn-send" text="Invia" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
