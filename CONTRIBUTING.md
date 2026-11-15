@@ -19,7 +19,7 @@ git pull origin main
 git branch -a
 ```
 
-![branch](https://ibb.co/ddXBNR5)
+<img width="499" height="99" alt="branch" src="https://github.com/user-attachments/assets/54fce4e2-7a42-45a8-851a-37909f6b9ac9" />
 
 ```bash
 git fetch
