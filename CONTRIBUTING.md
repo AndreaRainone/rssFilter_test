@@ -64,15 +64,17 @@ git switch -c nomeBranch
     ```bash
     git commit -m "CODICE_TASKJIRA Commento"
     ```
-    Esempio: 
+    **Esempio:**
     ```bash
     git commit -m "ISFARIS-3 Aggiunto obiettivi del sistema"
     ```
-    NOTA: se lavorate su più sottotask, per migliorare la tracciabilità, il messaggio del commit deve contenere tutti i codici dei sottotask di cui state facendo la pull request.
+    > [!NOTE]
+    > Se lavorate su più sottotask, per migliorare la tracciabilità, il messaggio del commit deve contenere tutti i codici dei sottotask di cui state facendo la pull request.**
+
     ```bash
     git commit -m "ISFARIS-3 ISFARIS-4 ISFARIS-5 Aggiunto obiettivi del sistema"
     ```
-    <mark>OPPURE un commit per ogni sottotask
+    **OPPURE un commit per ogni sottotask**
     ```bash
     git commit -m "ISFARIS-3 Aggiunta sezione 1.1"
     git commit -m "ISFARIS-4 Aggiunta sezione 1.2"
@@ -86,13 +88,16 @@ git switch -c nomeBranch
 
 2. Entrare poi sulla repository di github, aprire una pull request e assegnare un "Reviewer" (Andrea / Davide) diverso dall'autore. Il titolo deve matchare con i codici di Jira dei vari subtask, simile a quello del commit con messaggio unico (ndr).
 
-<mark>E' importante scrivere un messaggio di descrizione nella pull request</mark>
+> [!IMPORTANT]
+> È obbligatorio scrivere una breve descrizione del lavoro svolto all'interno della Pull Request prima di assegnare il revisore.
 
 3. Scrivere nella sezione "Comunicazioni" di Discord, taggando il revisore e avvertendolo di revisionare quel task
 
 ## ***4. Nota per i revisori***
 1. **Lasciare quantomeno un piccolo commento durante la review, che sia accettata/rifiutata/richiesta la modifica.**
-2. **Dopo aver accettato la pull request e fatto il merge, è <mark>OBBLIGATORIO</mark>  cancellare il branch che l'ha creato**
+> [!CAUTION]
+> Dopo aver accettato la Pull Request ed effettuato il merge, è **obbligatorio** cancellare il branch remoto tramite l'apposito pulsante su GitHub.
+
 
 
 ## ***5. Altri comandi utili per gestire i branch***
